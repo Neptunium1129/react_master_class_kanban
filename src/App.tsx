@@ -13,7 +13,7 @@ function App() {
   const onMinutesChange = (event:React.FormEvent<HTMLInputElement>) => {
     setMinutes(+event.currentTarget.value);
     //sethours((+event.currentTarget.value) / 60);
-  };
+  }; 
   
   const onHoursChange  = (event:React.FormEvent<HTMLInputElement>) => {
     setHours(+event.currentTarget.value);
