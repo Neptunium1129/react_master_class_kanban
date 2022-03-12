@@ -23,3 +23,8 @@ export const hoursSelector = selector<number>({
     set(minState, val)
    }
 });
+
+export const toDoState = atom({
+    key:"toDo",
+    default : ["a", "b", "c", "d", "E"]
+})
