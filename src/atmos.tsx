@@ -24,7 +24,43 @@ export const hoursSelector = selector<number>({
    }
 });
 
-export const toDoState = atom({
+export interface ITodo{
+    id:number;
+    text:string;
+}
+
+export interface IBoard{
+    boardName:string;
+    obj:[];
+}
+
+
+
+export interface IToDoState {
+    [key :string] : ITodo[];
+}
+
+export interface IBoardState {
+    [key :string] : IBoard[];
+}
+
+const localTodo = localStorage.getItem("toDo");
+const todoJSON = JSON.parse(localTodo as any);
+
+
+export const toDoState = atom<IToDoState>({
     key:"toDo",
-    default : ["a", "b", "c", "d", "E"]
+    default :  todoJSON ||  { 
+       TO_DO : [],
+       DOING : [],
+       DONE : [],
+    }
 })
+
+export const boardState = atom<IBoardState>({
+    key:"board",
+    default : {
+        BOARD : []
+    }
+})
+
